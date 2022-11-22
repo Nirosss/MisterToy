@@ -6,7 +6,11 @@ import store from './store/index.js'
 import './assets/main.css'
 
 const app = createApp(App)
-
+app.config.globalProperties.$filters = {
+    currencyUSD(amount) {
+              return '$' + amount
+    },
+  }
 
 app.use(router)
 app.use(store)

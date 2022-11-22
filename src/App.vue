@@ -12,11 +12,6 @@ export default {
   created() {
     this.$store.dispatch({ type: 'loadToys' })
   },
-  methods: {
-    clicked() {
-      alert('I got clicked!')
-    },
-  },
   components: {
     appHeader,
   },

@@ -1,0 +1,16 @@
+.app-header-container{
+    background-color: #DEE2FF;
+    height: 60px;
+    color: black;
+}
+.app-header{ 
+    width: 100%;
+}
+.app-header-info :first-child{ 
+    margin-right: 10px;
+}
+
+.app-header-container .app-header-username span{
+    color: #8E9AAF;
+    font-size: 1.25rem;
+}

@@ -13,7 +13,12 @@ const router = createRouter({
       component: toyApp
     },
     {
-      path: '/toy:toyId',
+      path: '/toy',
+      name: 'toyapp',
+      component: toyApp
+    },
+    {
+      path: '/toy/:toyId',
       name: 'toy-details',
       component: toyDetails,
     },
