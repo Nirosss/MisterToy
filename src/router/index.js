@@ -23,7 +23,7 @@ const router = createRouter({
       component: toyDetails,
     },
     {
-      path: '/toy:toyId?',
+      path: '/toy/edit/:toyId?',
       name: 'toy-edit',
       component: toyEdit,
     },

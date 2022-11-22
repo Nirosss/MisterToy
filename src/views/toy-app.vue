@@ -3,7 +3,7 @@
     <button @click="goToEdit" class="btn btn-secondary">Add a new toy</button>
     <toy-filter @setFilter="setFilterBy" />
   </section>
-    <toy-list @removeToy="removeToy" v-if="toys" :toys="toys" />
+  <toy-list @removeToy="removeToy(toyId)" v-if="toys" :toys="toys" />
 </template>
 
 <script>
@@ -20,22 +20,21 @@
     },
     computed: {
       toys() {
-        return this.$store.getters.toysForDisplay
+        return this.$store.getters.toys
       },
     },
     created() {},
 
     methods: {
       loadToys() {
-        toyService.query().then((toys) => (this.toys = toys))
+        toyService.query(this.filterBy).then((toys) => (this.toys = toys))
       },
       setFilterBy(filterBy) {
-        console.log(filterBy)
-      this.$store.commit({
-        type: 'setFilterBy',
-        filterBy,
-      })
-    },
+        this.$store.dispatch({
+          type: 'setFilterBy',
+          filterBy,
+        })
+      },
       goToEdit() {
         this.$router.push(`/toy/edit`)
       },

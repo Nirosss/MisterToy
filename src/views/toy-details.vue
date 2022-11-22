@@ -34,6 +34,7 @@
       const toyId = this.$route.params.toyId
       this.$store.dispatch({ type: 'getToyById', toyId }).then((toy) => {
           this.currToy = toy
+          console.log(toy)
       })
     },
     methods: {
