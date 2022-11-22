@@ -2,8 +2,16 @@ import { utilService } from './util.service.js'
 // import { storageService } from './storage.service.js'
 import { storageService } from './async-storage.service.js'
 
+const labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle","Outdoor"]
 const TOY_LIST = 'toy-list'
 
+export const toyService = {
+  query,
+  getById,
+  remove,
+  save,
+  getEmptyToy,
+}
 
 function query() {
   return storageService.queryWithDelay(TOY_LIST).then((toys) => {
@@ -38,11 +46,12 @@ function getById(toyId) {
   return storageService.get(TOY_LIST, toyId)
 }
 
-export default {
-  query,
-  getById,
-  save,
-  remove,
+function getEmptyToy() {
+  return {
+    name: '',
+    price: 0,
+    labels:'',
+  }
 }
 
 function _createToys() {
@@ -56,7 +65,7 @@ function _createToys() {
   ]
 }
 
-function _createToy(name,labels = toys) {
+function _createToy(name,labels = ["Box game", "Art", "Baby"]) {
   return {
     _id: utilService.makeId(),
     name,

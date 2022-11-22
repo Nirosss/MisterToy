@@ -1,5 +1,5 @@
 <template>
     <div>
-        Toy Detials
+        Toy Edit
     </div>
 </template>
